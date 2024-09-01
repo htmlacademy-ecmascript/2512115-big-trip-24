@@ -1,7 +1,7 @@
 # Проект «Большое путешествие»
 
 * Студент: [Алексей Федотов](https://up.htmlacademy.ru/ecmascript/24/user/2512115).
-* Наставник: `Неизвестно`.
+* Наставник: [Артем Именин](https://htmlacademy.ru/profile/aimenin).
 
 ---
 
