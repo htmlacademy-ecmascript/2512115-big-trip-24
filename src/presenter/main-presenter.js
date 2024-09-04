@@ -1,18 +1,23 @@
+import {render} from '../render.js';
+
+import createFilterTemplate from '../view/filter-view.js';
+import createSortTemplate from '../view/sort-view.js';
 import createEventTemplate from '../view/event-view.js';
-import createFormAddTemplate from '../view/form-add-view.js';
 import createFormEditTemplate from '../view/form-edit-view.js';
-
-import {render} from './render.js';
-
-
+// import createFormAddTemplate from '../view/form-add-view.js';
 export default class MainPresenter {
-  createEventComponent = new createEventTemplate();
-  createFormAddComponent = new createFormAddTemplate();
-  createFormEditComponent = new createFormEditTemplate();
+  constructor(filtersContainer, eventsContainer) {
+    this.filtersContainer = filtersContainer;
+    this.eventsContainer = eventsContainer;
+  }
 
   init() {
-    render(new createEventComponent());
-    render(new createEventComponent());
-    render(new createFormEditComponent());
+    render(new createFilterTemplate(), this.filtersContainer);
+    render(new createSortTemplate(), this.eventsContainer);
+    render(new createFormEditTemplate(), this.eventsContainer);
+
+    for (let i = 0; i < 3; i++) {
+      render(new createEventTemplate(), this.eventsContainer);
+    }
   }
 }
